@@ -1,5 +1,5 @@
 <template>
-    <th style="margin:0">{{colName}}</th>
+    <th class="header-col">{{colName}}</th>
 </template>
 
 <script>
@@ -29,5 +29,11 @@ export default {
 </script>
 
 <style scoped>
-
+.header-col{
+    text-align: left;
+    border-bottom:1px solid #ebeef5;
+    margin:0;
+    padding: 12px 10px;
+    color:#909399;
+}
 </style>

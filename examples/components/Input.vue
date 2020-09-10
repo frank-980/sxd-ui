@@ -36,8 +36,8 @@ export default {
        is_loading:true,
        tableData:[
             {
-                name:'sxdddddddddddddddd',
-                age:25,
+                name:'sxddddddddd',
+                age:2522222222,
                 time:"2020"
             },
             {

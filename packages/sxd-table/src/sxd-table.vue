@@ -1,7 +1,7 @@
 <template>
   <div class="table">
-    <table style="width:100%">
-        <tr>
+    <table style="width:100%;border-collapse:collapse">
+        <tr class="header-row">
             <slot></slot>
         </tr>
         <tr class="body-row" v-for="(item,index) in renderData" :key="index">
@@ -64,11 +64,19 @@ export default {
 <style scoped>
 .table{
     width:100%;
+    ;
 }
 .body-row{
+    text-align: left;
     width:100%;
-    display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
+    background: white;
 }
-
+.body-row:hover{
+    background: #f5f7fa;
+}
+.body-col{
+    padding:12px 10px;
+    border-bottom:1px solid #ebeef5;
+}
 </style>
