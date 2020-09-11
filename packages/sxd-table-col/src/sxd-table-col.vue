@@ -1,5 +1,7 @@
 <template>
-    <th class="header-col">{{colName}}</th>
+    <div>
+        <slot :row="tableData" :test="test"></slot>
+    </div>
 </template>
 
 <script>
@@ -18,10 +20,23 @@ export default {
   },
   data () {
     return {
-
+        test:"abc",
+        tableData:[
+            {
+                name:'sxddddddddd',
+                age:222,
+                time:"2020"
+            },
+            {
+                name:'sxd2',
+                age:222,
+                time:"2022"
+            },
+        ],
     }
   },
   created(){
+
   },
   methods: {
   },

@@ -1,13 +1,20 @@
 <template>
   <div class="table">
     <table style="width:100%;border-collapse:collapse">
-        <tr class="header-row">
-            <slot></slot>
+        <tr >
+            <th class="header-col" v-for="(item,index) in keysName" :key="index">
+                {{item}}
+            </th>
         </tr>
         <tr class="body-row" v-for="(item,index) in renderData" :key="index">
-            <td class="body-col" v-for="(item2,index) in keys" :key="index">{{item[item2]}}</td>
+            <td class="body-col" v-for="(item2,index) in keys" :key="index">
+                <span v-if="item2">{{item[item2]}}</span>
+                <div v-else>
+                    <slot></slot>
+                </div>
+            </td>
         </tr>
-    </table>
+     </table>
   </div>
 </template>
 
@@ -24,15 +31,32 @@ export default {
   data () {
     return {
         renderData:[],
-        keys:[]
+        keys:[],
+        keysName:[],
+        tableData:[
+            {
+                name:'sxddddddddd',
+                age:111,
+                time:"2020"
+            },
+            {
+                name:'sxd2',
+                age:111,
+                time:"2022"
+            },
+        ],
     }
   },
   created(){
+      console.log(this.$slots)
       let keys=[]
+      let keysName=[]
       for(let i=0;i<this.$slots.default.length;i++){
           keys.push(this.$slots.default[i].componentOptions.propsData.prop)
+          keysName.push(this.$slots.default[i].componentOptions.propsData.colName)
       }
       this.keys=keys
+      this.keysName=keysName
         let arr=[]
         for(let i=0;i<this.data.length;i++){
             let obj={}
@@ -65,6 +89,13 @@ export default {
 .table{
     width:100%;
     ;
+}
+.header-col{
+    text-align: left;
+    border-bottom:1px solid #ebeef5;
+    margin:0;
+    padding: 12px 10px;
+    color:#909399;
 }
 .body-row{
     text-align: left;

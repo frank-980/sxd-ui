@@ -127,8 +127,7 @@ export default {
   align-items: center;
   position: relative;
   display: inline-block;
-  margin-right: 8px;
-  margin-bottom: 12px;
+  margin:0;
   padding: 0 15px;
 
   height: 32px;

@@ -43,13 +43,13 @@ export default {
           {
             id:1,
             group:"二级小标题",
-            text:"input",
+            text:"input 输入框",
             path:"#/component/input",
           },
           {
             id:2,
-            text:"install",
-            path:"#/component/input",
+            text:"table 表格",
+            path:"#/component/table",
           },
           {
             id:3,

@@ -3,7 +3,12 @@
     <h1 class="blockTit">{{title}}</h1>
     <div class="block">
         <div class="source">
-            <sxd-input/>
+            <slot name="source"></slot>
+        </div>
+        <div class="description">
+            <div class="description-wrap">
+            <slot name="description"></slot>
+            </div>
         </div>
         <div class="code" :style="'height:'+codeHeight">
             <pre style="margin:0" v-highlightjs="code.html"><code class="html"></code></pre>
@@ -80,6 +85,15 @@ export default {
 .source{
 position: relative;
     padding: 24px;
+}
+.description{
+    padding: 10px;
+    background: #fafafa;
+}
+.description-wrap{
+    padding:14px;
+    background: white;
+    border: 1px solid #eaeefb
 }
 .code{
     background: #282c34;

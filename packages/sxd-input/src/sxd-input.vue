@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import '../../../public/css/index.css'
 export default {
   name: 'SxdInput', 
   props:{
@@ -72,4 +71,60 @@ export default {
 </script>
 
 <style scoped>
+:focus{outline: none;}
+.sxd-input{
+   position: relative;
+   width:200px;
+   display: inline-block;
+}
+.sxd-input .sxd-textarea{
+  outline: 1px solid black;
+  font-size:16px;
+  padding: 7px 0;
+  width:100%;
+  background-color: transparent;
+}
+.sxd-input .sxd-ip{
+  font-size:16px;
+  padding: 7px 0;
+  width:100%;
+  background-color: transparent;
+  border:0;
+  position: relative;
+  border-bottom:1px solid gray;
+}
+.sxd-input .sxd-ip:disabled{
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  border-bottom:1px solid #ccc;
+}
+.sxd-input .sxd-lab{
+  font-size:16px;
+  width:100%;
+  text-align: left;
+  position: absolute;
+  top:9px;
+  left:0;
+  z-index:-1;
+  transition:.4s;
+  color:#aaa;
+}
+.sxd-input .focus-border{
+  position: absolute;
+  bottom:0;
+  left:0;
+  width:0;
+  z-index:99;
+  height:2px;
+  background-color: #7763e9;
+  transition: .4s;
+}
+.sxd-ip:focus ~ .sxd-lab, .keepFocus ~ .sxd-lab{
+  top:-16px;
+	font-size:12px;
+	color:#7763e9
+}
+.sxd-ip:focus ~ .focus-border, .keepFocus ~ .focus-border{
+  width:100%
+}
 </style>
