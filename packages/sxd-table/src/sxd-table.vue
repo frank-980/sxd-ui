@@ -88,7 +88,7 @@ export default {
 <style scoped>
 .table{
     width:100%;
-    ;
+    
 }
 .header-col{
     text-align: left;

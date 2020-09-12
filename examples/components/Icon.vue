@@ -885,7 +885,4 @@ i{
   font-size:24px;
   margin:0 14px
 }
-.content{
-    padding-top:50px
-  }
 </style>

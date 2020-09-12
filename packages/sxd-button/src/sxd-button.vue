@@ -6,8 +6,8 @@
   :disabled="disabled||loading"
   >
   <i v-if="loading" class="loading iconfont icon-loading"></i>
-  <i v-if="loading && (icon!='')" :class="icon==''?'': 'iconfont '+icon"></i>
-    <slot />
+  <i v-if="icon" :class="['iconfont '+icon]"></i>
+    <span class="marginLeft5"><slot /></span>
   </button>
 </div>
 </template>
@@ -38,7 +38,6 @@ export default {
     },
     icon: {
       type: String,
-      default: ''
     },
   },
   data () {
@@ -77,8 +76,8 @@ export default {
   display: inline-block;
   animation:turn 1.8s linear infinite; 
 }
-.iconfont{
-  margin-right:6px
+.marginLeft5{
+  margin-left: 5px;
 }
 .sxd-button{
   display: inline-block;

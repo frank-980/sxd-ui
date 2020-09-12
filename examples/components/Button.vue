@@ -3,13 +3,13 @@
     <p style="margin:0;font-size:28px;font-weight:400;color:#1f2f3d">Button 按钮</p>
     <p style="font-size:14px;font-weight:400;color:#5e6d82">常用的操作按钮</p>
 <!--基础用法-->
-    <Block-code title="基础用法" :code="code" height="300px">
+    <Block-code title="基础用法" :code="code1" height="360px">
       <template slot="source">
         <sxd-button class="demo-button" >默认按钮</sxd-button>
         <sxd-button class="demo-button" type="primary">主要按钮</sxd-button>
         <sxd-button class="demo-button" type="success">成功按钮</sxd-button>
         <sxd-button class="demo-button" type="danger">危险按钮</sxd-button>
-        <br>
+        <br><br>
         <sxd-button class="demo-button" >默认按钮</sxd-button>
         <sxd-button class="demo-button" ghost type="primary">主要按钮</sxd-button>
         <sxd-button class="demo-button" ghost type="success">成功按钮</sxd-button>
@@ -22,8 +22,22 @@
       </template>
     </Block-code>
 
+<!--图标按钮-->
+    <Block-code title="图标按钮" :code="code2" height="295px">
+      <template slot="source">
+        <sxd-button class="demo-button" icon="icon-good" type="primary"></sxd-button>
+        <sxd-button class="demo-button" icon="icon-search" type="primary">搜索</sxd-button>
+        <sxd-button class="demo-button" type="primary"><i style="margin-right:5px" class="iconfont icon-edit"></i>编辑</sxd-button>
+      </template>
+      <template slot="description">
+        <p style="font-size: 14px;color: #5e6d82">
+          设置icon属性即可，icon 的列表可以参考 icon 组件，也可以使用i标签，即可使用自定义图标。 
+        </p>
+      </template>
+    </Block-code>
+
 <!--禁用状态-->
-    <Block-code title="禁用状态" :code="code" height="300px">
+    <Block-code title="禁用状态" :code="code3" height="245px">
       <template slot="source">
         <sxd-button class="demo-button" disabled>默认按钮</sxd-button>
         <sxd-button class="demo-button" disabled type="primary">主要按钮</sxd-button>
@@ -38,7 +52,7 @@
     </Block-code>
 
 <!--不同尺寸-->
-    <Block-code title="不同尺寸" :code="code" height="300px">
+    <Block-code title="不同尺寸" :code="code4" height="220px">
       <template slot="source">
         <sxd-button class="demo-button" size="big" type="primary">默认按钮</sxd-button>
         <sxd-button class="demo-button" size="middle" type="primary">中等按钮</sxd-button>
@@ -52,9 +66,9 @@
     </Block-code>
 
 <!--加载中-->
-    <Block-code title="加载中" :code="code" height="300px">
+    <Block-code title="加载中" :code="code5" height="160px">
       <template slot="source">
-        <sxd-button class="demo-button" loading=true type="primary">加载中按钮</sxd-button>
+        <sxd-button class="demo-button" loading type="primary">加载中</sxd-button>
       </template>
       <template slot="description">
         <p style="font-size: 14px;color: #5e6d82">
@@ -77,36 +91,43 @@ export default {
        is_loading:true,
        data:[
           {
-            arguments: 'label',
-            brief: "输入框占位文本",
+            arguments: 'type',
+            brief: "类型",
             type: 'string',
-            options: '—',
-            default:"请输入"
+            options: 'default / primary / success / danger ',
+            default:"default"
+          },
+          {
+            arguments: 'size',
+            brief: "尺寸",
+            type: 'string',
+            options: 'medium / small / mini',
+            default:"false"
+          },
+          {
+            arguments: 'ghost',
+            brief: "是否启用幽灵按钮",
+            type: 'boolean',
+            options: 'true/false',
+            default:"false"
+          },
+          {
+            arguments: 'loading',
+            brief: "是否加载中状态",
+            type: 'boolean',
+            options: 'true/false',
+            default:"false"
           },
           {
             arguments: 'disabled',
-            brief: "是否禁用",
+            brief: "是否禁用状态",
             type: 'boolean',
             options: 'true/false',
             default:"false"
           },
           {
-            arguments: 'clearable',
-            brief: "是否可清空",
-            type: 'boolean',
-            options: 'true/false',
-            default:"false"
-          },
-          {
-            arguments: 'prefix-icon',
-            brief: "输入框头部图标",
-            type: 'string',
-            options: '—',
-            default:"—"
-          },
-          {
-            arguments: 'prefix-icon',
-            brief: "输入框尾部图标",
+            arguments: 'icon',
+            brief: "图标类名",
             type: 'string',
             options: '—',
             default:"—"
@@ -135,20 +156,50 @@ export default {
               key: 'default',
           }
       ],
-       code:{
+       code1:{
            html:`
-    <sxd-input v-model="inputVal" label="请输入"/>
-           `,
-           javascript:`
-    export default {
-      data () {
-        return {
-          inputVal:''
-        }
-      }
-    }
-            `
-       }
+    <sxd-button class="demo-button" >默认按钮</sxd-button>
+    <sxd-button class="demo-button" type="primary">主要按钮</sxd-button>
+    <sxd-button class="demo-button" type="success">成功按钮</sxd-button>
+    <sxd-button class="demo-button" type="danger">危险按钮</sxd-button>
+    <br><br>
+    <sxd-button class="demo-button" >默认按钮</sxd-button>
+    <sxd-button class="demo-button" ghost type="primary">主要按钮</sxd-button>
+    <sxd-button class="demo-button" ghost type="success">成功按钮</sxd-button>
+    <sxd-button class="demo-button" ghost type="danger">危险按钮</sxd-button>
+           `
+       },
+       code2:{
+           html:`
+    <sxd-button class="demo-button" icon="icon-good" type="primary"></sxd-button>
+    <sxd-button class="demo-button" icon="icon-search" type="primary">搜索</sxd-button>
+    <sxd-button class="demo-button" type="primary">
+        <i style="margin-right:5px" class="iconfont icon-edit"></i>
+        编辑
+    </sxd-button>
+           `
+       },
+       code3:{
+           html:`
+    <sxd-button class="demo-button" disabled>默认按钮</sxd-button>
+    <sxd-button class="demo-button" disabled type="primary">主要按钮</sxd-button>
+    <sxd-button class="demo-button" disabled type="success">成功按钮</sxd-button>
+    <sxd-button class="demo-button" disabled type="danger">危险按钮</sxd-button>
+           `
+       },
+       code4:{
+           html:`
+    <sxd-button class="demo-button" size="big" type="primary">默认按钮</sxd-button>
+    <sxd-button class="demo-button" size="middle" type="primary">中等按钮</sxd-button>
+    <sxd-button class="demo-button" size="small" type="primary">小型按钮</sxd-button>
+           `
+       },
+       code5:{
+           html:`
+    <sxd-button class="demo-button" loading=true type="primary">加载中</sxd-button>
+           `
+       },
+       
     }
   },
   methods: {
@@ -157,9 +208,6 @@ export default {
 </script>
 
 <style scoped>
-  .content{
-    padding-top:50px
-  }
   .demo-button{
     margin-left:15px;
   }

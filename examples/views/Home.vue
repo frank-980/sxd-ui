@@ -13,6 +13,7 @@
             <div v-for="item2 in item1.children" :key="item2.id">
               <h4 class="secondTit" v-if="item2.group">{{item2.group}}</h4>
               <a 
+              hidefocus="true"
               :class="{'thirdTit':active,'active':active == item2.id}"
               :href="item2.path"
               @click="active=item2.id">{{item2.text}}</a>
@@ -38,11 +39,11 @@ export default {
     active: 1,
     sidebar:[
       {
-        text:"一级标题",
+        text:"组件",
         children:[
           {
             id:1,
-            group:"二级小标题",
+            group:"Basic",
             text:"input 输入框",
             path:"#/component/input",
           },
@@ -93,6 +94,16 @@ h1,h2,h3,h4{
 }
 a{
     text-decoration: none;
+    outline:none;
+    border:none
+}
+a:-webkit-any-link:focus {
+  outline:none !important;
+    outline-offset: 0px !important;
+}
+a:focus {
+  outline:none !important;
+    outline-offset: 0px !important;
 }
 .container{
   width:1140px;
@@ -127,6 +138,7 @@ a{
   padding-top:80px
 }
 .sidebar{
+  padding-top:51px;
   padding-left:8px;
   width:240px;
   position: fixed;
@@ -176,5 +188,6 @@ a{
 .contentbar{
   width:870px;
   padding-left:270px;
+  padding-top:50px;
 }
 </style>
