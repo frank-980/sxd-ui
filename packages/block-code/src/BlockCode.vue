@@ -5,17 +5,18 @@
         <div class="source">
             <slot name="source"></slot>
         </div>
-        <div class="description">
+        
+        <div class="code" :style="'height:'+codeHeight">
+            <div class="description">
             <div class="description-wrap">
             <slot name="description"></slot>
             </div>
         </div>
-        <div class="code" :style="'height:'+codeHeight">
             <pre style="margin:0" v-highlightjs="code.html"><code class="html"></code></pre>
             <pre style="margin:0" v-highlightjs="code.javascript"><code class="javascript"></code></pre>
         </div>
         <div class="blockCodeControl" @click="is_hideCode=!is_hideCode">
-            <i class="block-icon iconfont sxd-code" :style="'transform:rotate('+block_deg+'deg);'"/>
+            <i class="block-icon iconfont icon-arrow-down" :style="'transform:rotate('+block_deg+'deg);'"/>
             <span class="block-span">{{block_text}}</span>
         </div>
     </div>
@@ -34,6 +35,10 @@ export default {
       code:{
           type:Object,
           required:true
+      },
+      height:{
+          type:String,
+          required:true
       }
   },
   data () {
@@ -41,10 +46,13 @@ export default {
         block_deg:0,
         block_text:"显示代码",
         is_hideCode:true,
-        codeHeight:0,
+        codeHeight:"0px",
     }
   },
   created(){
+  },
+  destroy(){
+      this.height="0px"
   },
   methods: {
   },
@@ -57,7 +65,7 @@ export default {
           }else{
               this.block_deg=180
               this.block_text="隐藏代码"
-              this.codeHeight='192px'
+              this.codeHeight=this.height
           }
       }
   }
@@ -112,7 +120,7 @@ position: relative;
 }
 .block:hover .block-icon{
     color:#7763e9;
-    margin-left:-30px
+    margin-left:-40px
 }
 .block:hover .block-span{
     color:#7763e9;
@@ -134,5 +142,6 @@ position: relative;
     transform: translateX(30px);
     transition: .3s;
     opacity: 0;
+    margin-left:10px
 }
 </style>

@@ -53,14 +53,13 @@ export default {
           },
           {
             id:3,
-            text:"install",
-            path:"#/component/input",
+            text:"icon 图标",
+            path:"#/component/icon",
           },
           {
             id:4,
-            group:"二级小标题2",
-            text:"input",
-            path:"#/component/input",
+            text:"button 按钮",
+            path:"#/component/button",
           },
           
         ]

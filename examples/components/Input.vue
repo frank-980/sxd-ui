@@ -1,6 +1,8 @@
 <template>
-  <div id="app">
-    <Block-code title="INPUT" :code="code">
+  <div class="content">
+    <p style="margin:0;font-size:28px;font-weight:400;color:#1f2f3d">Input 输入框</p>
+    <p style="font-size:14px;font-weight:400;color:#5e6d82">通过鼠标或键盘输入字符</p>
+    <Block-code title="基础用法" :code="code" height="300px">
       <template slot="source">
         <sxd-input v-model="inputVal"/>
         <span v-if="inputVal" style="margin-left:70px">绑定值:{{inputVal}}</span>
@@ -127,6 +129,8 @@ export default {
         return {
           inputVal:''
         }
+      }
+    }
             `
        }
     }
@@ -136,5 +140,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+  .content{
+    padding-top:50px
+  }
 </style>

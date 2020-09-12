@@ -1,0 +1,37 @@
+{
+  "id": "1714180",
+  "name": "sxd-icon",
+  "font_family": "iconfont",
+  "css_prefix_text": "sxd-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11474242",
+      "name": "code",
+      "font_class": "code",
+      "unicode": "e6f2",
+      "unicode_decimal": 59122
+    },
+    {
+      "icon_id": "1129508",
+      "name": "icon_index",
+      "font_class": "iconindex",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "2565202",
+      "name": "index",
+      "font_class": "index1",
+      "unicode": "e819",
+      "unicode_decimal": 59417
+    },
+    {
+      "icon_id": "2685590",
+      "name": "PC-index-left-right",
+      "font_class": "PC-index-left-right",
+      "unicode": "e67b",
+      "unicode_decimal": 59003
+    }
+  ]
+}
