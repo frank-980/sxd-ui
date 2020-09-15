@@ -1,5 +1,6 @@
 
 import SxdInput from './sxd-input'
+import SxdInputpro from './sxd-inputpro'
 import SxdButton from './sxd-button'
 import SxdIcon from './sxd-icon'
 import BlockCode from './block-code'
@@ -7,17 +8,20 @@ import SxdTable from './sxd-table'
 import SxdTablecol from './sxd-table-col'
 import SxdTablepro from './sxd-table-pro'
 import SxdSwitch from './sxd-switch'
-import select from './select'
+import SxdSelect from './select'
+import SxdSelectOptions from './select-options'
 // 所有组件列表
 const components = [
   SxdInput,
+  SxdInputpro,
   SxdButton,
   SxdIcon,
   BlockCode,
   SxdTable,
   SxdTablepro,
   SxdTablecol,
-  select,
+  SxdSelect,
+  SxdSelectOptions,
   SxdSwitch,
 ]
 // 定义 install 方法，接收 Vue 作为参数

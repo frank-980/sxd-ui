@@ -3,7 +3,7 @@
 </template>
 <script>
   export default {
-    name: 'selectOptions',
+    name: 'SxdSelectOptions',
     props: {
         label:{
             type:String,

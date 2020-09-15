@@ -1,15 +1,16 @@
 <template>
 <div>
-  <select v-model="sele">
-    <option value ="volvo">Volvo</option>
-    <option value ="saab">Saab</option>
-  </select>
-  <button @click="sel">123</button>
+    <div>
+        <input />
+        <ul>
+            <slot />
+        </ul>
+    </div>
 </div>
 </template>
 <script>
   export default {
-    name: 'select',
+    name: 'SxdSelect',
     props: {
       name: String
     },
@@ -20,9 +21,7 @@
       
     },
     methods:{
-     sel(){
-       console.log(this.sele)
-     } 
+ 
     }
   };
 </script>

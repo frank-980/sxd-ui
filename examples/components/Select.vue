@@ -1,26 +1,16 @@
 <template>
-<!--<div>
-  <select v-model="sele">
-    <option value ="volvo">Volvo</option>
-    <option value ="saab">Saab</option>
-  </select>
-  <button @click="sel">123</button>
-</div>-->
+
 <div>
-    <div>
-        <ul>
-            <li>好几个</li>
-            <li>海淀区</li>
-            <li>宝山区</li>
-        </ul>
-    </div>
+    <sxd-select>
+        <sxd-select-options label="宝山区" value="宝山区"></sxd-select-options>
+        <sxd-select-options label="普陀区" value="普陀区"></sxd-select-options>
+    </sxd-select>
 </div>
 </template>
 <script>
   export default {
-    name: 'select',
     props: {
-      name: String
+      
     },
     data(){
       return{

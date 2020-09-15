@@ -1,4 +1,5 @@
 import sxdInput from '../components/Input'
+import sxdInputpro from '../components/Inputpro'
 import sxdIcon from '../components/Icon'
 import sxdTable from '../components/Table'
 import sxdButton from '../components/Button'
@@ -32,6 +33,7 @@ export default [
             title: '组件|SHN-UI'
         }
     },
+    
     {
         path: '/component/icon',
         name: 'sxdIcon',
@@ -60,6 +62,14 @@ export default [
         path: '/component/Select',
         name: 'select',
         component: select,
+        meta: {
+            title: '组件|SHN-UI'
+        }
+    },
+    {
+        path: '/component/inputpro',
+        name: 'sxdInputpro',
+        component: sxdInputpro,
         meta: {
             title: '组件|SHN-UI'
         }

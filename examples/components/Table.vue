@@ -9,7 +9,7 @@
       <template slot="description">
         <p style="font-size: 14px;color: #5e6d82">
           表格的简单用法，columns存放表头和绑定值，data里存放渲染的数据
-        </p>
+        </p> 
       </template>
     </Block-code>
     <!--  BLOCK 自定义列模板  -->

@@ -79,9 +79,15 @@ export default {
           },
           {
             id:7,
+            text:"input pro",
+            path:"#/component/inputpro",
+          },
+          {
+            id:8,
             text:"select 下拉",
             path:"#/component/select",
           },
+
         ]
       },
     ]
