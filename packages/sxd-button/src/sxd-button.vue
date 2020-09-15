@@ -7,7 +7,7 @@
   >
   <i v-if="loading" class="loading iconfont icon-loading"></i>
   <i v-if="icon" :class="['iconfont '+icon]"></i>
-    <span class="marginLeft5"><slot /></span>
+    <span v-if="!icon" class="marginLeft5"><slot /></span>
   </button>
 </div>
 </template>
@@ -82,7 +82,6 @@ export default {
 .sxd-button{
   display: inline-block;
 }
-
 /* type ghost disabled */
 .sxd-button .default{
    border-color: #dcdfe6;

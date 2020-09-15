@@ -8,9 +8,9 @@
     <div class="main container">
       <div class="sidebar">
         <ul class="firstUl">
-          <li class="firstLi" v-for="item1 in sidebar" :key="item1.id">
+          <li class="firstLi" v-for="(item1,index) in sidebar" :key="index">
             <a class="firstTit">{{item1.text}}</a>
-            <div v-for="item2 in item1.children" :key="item2.id">
+            <div v-for="(item2,index) in item1.children" :key="index">
               <h4 class="secondTit" v-if="item2.group">{{item2.group}}</h4>
               <a 
               hidefocus="true"
@@ -39,49 +39,51 @@ export default {
     active: 1,
     sidebar:[
       {
-        text:"组件",
+        text:"开发指南",
         children:[
           {
             id:1,
+            text:"安装",
+            path:"#/component/install",
+          },
+          {
+            id:2,
+            text:"快速上手",
+            path:"#/component/usage",
+          },
+        ]
+      },
+      {
+        text:"组件",
+        children:[
+          {
+            id:3,
             group:"Basic",
             text:"input 输入框",
             path:"#/component/input",
           },
           {
-            id:2,
+            id:4,
             text:"table 表格",
             path:"#/component/table",
           },
           {
-            id:3,
+            id:5,
             text:"icon 图标",
             path:"#/component/icon",
           },
           {
-            id:4,
+            id:6,
             text:"button 按钮",
             path:"#/component/button",
           },
-          
-        ]
-      },
-      {
-        text:"一级标题",
-        children:[
           {
-            id:5,
-            group:"二级小标题",
-            text:"input",
-            path:"#/component/input",
-          },
-          {
-            id:6,
-            text:"install",
-            path:"#/component/input",
+            id:7,
+            text:"select 下拉",
+            path:"#/component/select",
           },
         ]
       },
-      
     ]
   }},
 
@@ -131,7 +133,6 @@ a:focus {
   font-weight: bold;
   margin:0;
 }
-
 .main{
   display: flex;
   align-content: center;
@@ -156,16 +157,17 @@ a:focus {
 }
 .sidebar .firstTit{
   font-size: 16px;
-    color: #333;
-    line-height: 40px;
-    height: 40px;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    display: block;
-    position: relative;
-    transition: .15s ease-out;
-    font-weight: 700;
+  color: #333;
+  line-height: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  transition: .15s ease-out;
+  font-weight: 700;
+  margin-top:15px;
 }
 .sidebar .secondTit{
   font-size: 12px;
@@ -187,7 +189,6 @@ a:focus {
 }
 .contentbar{
   width:870px;
-  padding-left:270px;
-  padding-top:50px;
+  padding:50px 0 50px 270px;
 }
 </style>

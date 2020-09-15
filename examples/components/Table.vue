@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <!--  BLOCK 基础表格  -->
-    <Block-code title="基础表格" :code="code1" height="680px">
+    <Block-code title="基础表格" :code="code1" height="1027px">
       <template slot="source">
         <sxd-tablepro :columns="columns1" :data="data1">
         </sxd-tablepro>
@@ -13,7 +13,7 @@
       </template>
     </Block-code>
     <!--  BLOCK 自定义列模板  -->
-    <Block-code title="自定义列模板" :code="code2" height="855px">
+    <Block-code title="自定义列模板" :code="code2" height="1280px">
       <template slot="source">
         <sxd-tablepro :columns="columns2" :data="data2">
             <template v-slot:name="{row}">

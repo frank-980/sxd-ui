@@ -7,6 +7,7 @@ import SxdTable from './sxd-table'
 import SxdTablecol from './sxd-table-col'
 import SxdTablepro from './sxd-table-pro'
 import SxdSwitch from './sxd-switch'
+import select from './select'
 // 所有组件列表
 const components = [
   SxdInput,
@@ -16,7 +17,7 @@ const components = [
   SxdTable,
   SxdTablepro,
   SxdTablecol,
-  
+  select,
   SxdSwitch,
 ]
 // 定义 install 方法，接收 Vue 作为参数

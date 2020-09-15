@@ -2,7 +2,29 @@ import sxdInput from '../components/Input'
 import sxdIcon from '../components/Icon'
 import sxdTable from '../components/Table'
 import sxdButton from '../components/Button'
-export default [{
+import Usage from '../components/Usage'
+import Install from '../components/Install'
+import select from '../components/Select'
+export default [
+    /* usage */
+    {
+        path: '/component/install',
+        name: 'Install',
+        component: Install,
+        meta: {
+            title: '组件|SHN-UI'
+        }
+    },
+    {
+        path: '/component/usage',
+        name: 'Usage',
+        component: Usage,
+        meta: {
+            title: '组件|SHN-UI'
+        }
+    },
+    /* zujian */
+    {
         path: '/component/input',
         name: 'sxdInput',
         component: sxdInput,
@@ -30,6 +52,14 @@ export default [{
         path: '/component/button',
         name: 'sxdButton',
         component: sxdButton,
+        meta: {
+            title: '组件|SHN-UI'
+        }
+    },
+    {
+        path: '/component/Select',
+        name: 'select',
+        component: select,
         meta: {
             title: '组件|SHN-UI'
         }

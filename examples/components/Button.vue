@@ -17,7 +17,7 @@
       </template>
       <template slot="description">
         <p style="font-size: 14px;color: #5e6d82">
-          使用type、size属性来定义 Button 的样式
+          使用type、size、ghost属性来定义 Button 的样式
         </p>
       </template>
     </Block-code>
