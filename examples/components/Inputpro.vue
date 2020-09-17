@@ -26,9 +26,9 @@
       </template>
     </Block-code>
 
-    <Block-code title="可清空" :code="code3" height="400px">
+    <Block-code title="可清空" :code="code3" height="410px">
       <template slot="source">
-        <sxd-inputpro clearable />
+        <sxd-inputpro clearable v-model="inputVal2"/>
       </template>
       <template slot="description">
         <p style="font-size: 14px;color: #5e6d82">
@@ -39,8 +39,8 @@
 
     <Block-code title="带 icon 的输入框" :code="code4" height="400px">
       <template slot="source">
-        <sxd-inputpro style="margin-right: 15px;" suffixIcon='icon-good'/>
-        <sxd-inputpro prefixIcon='icon-edit'/>
+        <sxd-inputpro style="margin-right: 15px;" prefixIcon='icon-search'/>
+        <sxd-inputpro suffixIcon='icon-good'/>
       </template>
       <template slot="description">
         <p style="font-size: 14px;color: #5e6d82">
@@ -49,7 +49,7 @@
       </template>
     </Block-code>
 
-    <Block-code title="复合型输入框" :code="code5" height="620px">
+    <Block-code title="复合型输入框" :code="code5" height="690px">
       <template slot="source">
         <sxd-inputpro>
             <template slot="prepend">Http://</template>
@@ -58,6 +58,9 @@
             <template slot="append">.com</template>
         </sxd-inputpro>
         <sxd-inputpro style="margin-top: 15px;">
+            <template slot="prepend">
+                <i class="iconfont icon-good"></i>
+            </template>
             <template slot="append">
                 <i class="iconfont icon-good"></i>
             </template>
@@ -81,6 +84,7 @@ export default {
   data () {
     return {
        inputVal:"",
+       inputVal2:"",
        is_loading:true,
        data:[
           {
@@ -171,12 +175,13 @@ export default {
        },
        code3:{
            html:`
-    <sxd-inputpro clearable/>
+    <sxd-inputpro v-model="inputVal2" clearable/>
            `,
            javascript:`
     export default {
       data () {
         return {
+          inputVal2:''
         }
       }
     }
@@ -184,8 +189,8 @@ export default {
        },
        code4:{
            html:`
+    <sxd-inputpro prefixIcon='icon-search'/>
     <sxd-inputpro suffixIcon='icon-good'/>
-    <sxd-inputpro prefixIcon='icon-edit'/>
            `,
            javascript:`
     export default {
@@ -205,6 +210,9 @@ export default {
         <template slot="append">.com</template>
     </sxd-inputpro>
     <sxd-inputpro>
+        <template slot="prepend">
+            <i class="iconfont icon-good"></i>
+        </template>
         <template slot="append">
             <i class="iconfont icon-good"></i>
         </template>

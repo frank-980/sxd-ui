@@ -1,7 +1,6 @@
 <template>
   <div class="content">
     <p class="h1">快速上手</p>
-    <p class="h4">本节将介绍如何在项目中使用 SxdUi。</p>
 
     <p class="h2">引入 SxdUi</p>
     <p class="h3">完整引入</p>

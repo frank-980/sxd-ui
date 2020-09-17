@@ -64,8 +64,8 @@ export default {
           },
           {
             id:4,
-            text:"table 表格",
-            path:"#/component/table",
+            text:"input pro",
+            path:"#/component/inputpro",
           },
           {
             id:5,
@@ -79,15 +79,14 @@ export default {
           },
           {
             id:7,
-            text:"input pro",
-            path:"#/component/inputpro",
+            text:"table 表格",
+            path:"#/component/table",
           },
-          {
+          /*{
             id:8,
             text:"select 下拉",
             path:"#/component/select",
-          },
-
+          },*/
         ]
       },
     ]

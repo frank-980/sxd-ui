@@ -1,9 +1,13 @@
 <template>
-    <li class="select-dropdown" @click="ab" :value="value">{{label}}1</li>
+  <div>
+    <ul>
+      <li class="select-dropdown" :value="value">{{label}}</li>
+    </ul>
+  </div>
 </template>
-<script> 
+<script>
   export default {
-    name: 'SxdSelectOptions',
+    name: 'sxdAutoComplete',
     props: {
         label:{
             type:String,
@@ -25,8 +29,8 @@
       
     },
     methods:{
-     ab(){
-       this.$emit("S",'test')
+     sel(){
+       console.log(this.sele)
      } 
     }
   };

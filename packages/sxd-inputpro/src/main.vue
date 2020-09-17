@@ -21,6 +21,9 @@ $slots.prepend?'fixInput':'',
   :type="type"
   :disabled="disabled"
   @input="handleInput" 
+  @click="handleClick"
+  @focus="handleFocus"
+  @blur="handleBlur"
   />
   <div v-if="$slots.append" class="append">
     <slot name="append"></slot>
@@ -88,6 +91,15 @@ export default {
     handleInput(event) {
       console.log(event)
       this.$emit('input', event.target.value)
+    },
+    handleClick(){
+      this.$emit('click', '')
+    },
+    handleFocus(){
+      this.$emit('focus','')
+    },
+    handleBlur(){
+      this.$emit('blur','')
     },
     clear(){
       this.$emit('input', '')

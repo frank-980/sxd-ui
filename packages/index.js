@@ -10,6 +10,7 @@ import SxdTablepro from './sxd-table-pro'
 import SxdSwitch from './sxd-switch'
 import SxdSelect from './select'
 import SxdSelectOptions from './select-options'
+import SxdAutoComplete from './autocomplete'
 // 所有组件列表
 const components = [
   SxdInput,
@@ -23,6 +24,7 @@ const components = [
   SxdSelect,
   SxdSelectOptions,
   SxdSwitch,
+  SxdAutoComplete
 ]
 // 定义 install 方法，接收 Vue 作为参数
 const install = function (Vue) {
