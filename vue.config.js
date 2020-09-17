@@ -28,10 +28,4 @@ module.exports = {
         return options
       })
   },
-  css: {
-    extract: false,
-    loaderOptions: {
-      
-    },
-  }
 }
