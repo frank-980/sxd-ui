@@ -1,19 +1,29 @@
-# vue-cli
+# sxd-ui
 
-## Project setup
+## Install
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+npm i sxd-ui -S
 ```
 
-### Compiles and minifies for production
+### Import to your projects
 ```
-npm run build
+import Vue from 'vue'
+import SxdUi from 'element-ui'
+import "sxd-ui/lib/sxd-ui.css"
+import App from './App.vue'
+
+Vue.use(SxdUi)
+
+new Vue({
+    el: '#app',
+    render: h => h(App)
+})
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Preview
+```
+http://106.13.183.106/
+```
+
+### Tips
+It is in development...
