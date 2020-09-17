@@ -11,6 +11,7 @@ import SxdSwitch from './sxd-switch'
 import SxdSelect from './select'
 import SxdSelectOptions from './select-options'
 import SxdAutoComplete from './autocomplete'
+import '../public/iconfont/iconfont.css';
 // 所有组件列表
 const components = [
   SxdInput,

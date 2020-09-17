@@ -4,9 +4,7 @@ import router from './router'
 import store from './store'
 /* sxd-ui */
 import SxdUi from '../packages'
-import '../public/iconfont/iconfont.css';
 Vue.use(SxdUi)
-console.log(SxdUi)
 /* highlight */
 /*import hljs from 'vue-highlightjs'
 import 'highlight.js/styles/atom-one-dark.css'
