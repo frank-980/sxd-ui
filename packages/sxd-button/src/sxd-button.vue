@@ -7,7 +7,7 @@
   >
   <i v-if="loading" class="loading iconfont icon-loading"></i>
   <i v-if="icon" :class="['iconfont '+icon]"></i>
-    <span v-if="!icon" class="marginLeft5"><slot /></span>
+    <span v-if="!icon" :class="[icon?'marginLeft5':'']"><slot /></span>
   </button>
 </div>
 </template>
