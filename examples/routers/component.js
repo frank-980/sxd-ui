@@ -6,6 +6,7 @@ import sxdButton from '../components/Button'
 import Usage from '../components/Usage'
 import Install from '../components/Install'
 import select from '../components/Select'
+import message from '../components/Message'
 export default [
     /* usage */
     {
@@ -70,6 +71,14 @@ export default [
         path: '/component/inputpro',
         name: 'sxdInputpro',
         component: sxdInputpro,
+        meta: {
+            title: '组件|SHN-UI'
+        }
+    },
+    {
+        path: '/component/message',
+        name: 'message',
+        component: message,
         meta: {
             title: '组件|SHN-UI'
         }

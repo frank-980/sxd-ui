@@ -87,6 +87,11 @@ export default {
             text:"select 下拉",
             path:"#/component/select",
           },*/
+          {
+            id:9,
+            text:"Message 消息提示",
+            path:"#/component/message",
+          },
         ]
       },
     ]

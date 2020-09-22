@@ -1,4 +1,4 @@
-
+import Vue from 'vue'
 import SxdInput from './sxd-input'
 import SxdInputpro from './sxd-inputpro'
 import SxdButton from './sxd-button'
@@ -11,6 +11,7 @@ import SxdSwitch from './sxd-switch'
 import SxdSelect from './select'
 import SxdSelectOptions from './select-options'
 import SxdAutoComplete from './autocomplete'
+import Message from './alert'
 import '../public/iconfont/iconfont.css';
 // 所有组件列表
 const components = [
@@ -25,8 +26,10 @@ const components = [
   SxdSelect,
   SxdSelectOptions,
   SxdSwitch,
-  SxdAutoComplete
+  SxdAutoComplete,
+  Message
 ]
+Vue.prototype.$message = Message;
 // 定义 install 方法，接收 Vue 作为参数
 const install = function (Vue) {
   // 判断是否安装，安装过就不继续往下执行
