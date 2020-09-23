@@ -1,23 +1,27 @@
 <template>
-<div @S="onOptionClick">
-    <div>
+<div>
+    <!--<div>
         <div class="selection">
-            <sxd-inputpro @focus="showSuggestions=true" />
+            <sxd-inputpro @focus="showSuggestions=true" @blur="showSuggestions=false"/>
         </div>
         <div v-if="showSuggestions" class="dropdown">
-            <!--<ul>
-                <li>无数据</li>
-            </ul>-->
             <ul>
                 <slot/>
             </ul> 
         </div>
-    </div>
+    </div>-->
+
+    <h1>123</h1>
+    <ren data="123" placeholder="请输入" @click="a">
+      <div slot="name1"><slot></slot></div>
+    </ren>
 </div>
 </template>
 <script>
+import ren from './render.vue';
   export default {
     name: 'SxdSelect',
+    components: {ren},
     props: {
       name: String
     },
@@ -31,9 +35,8 @@
       //this.$on('S', this.onOptionClick);
     },
     methods:{
-      onOptionClick(opt){
-        console.log(0)
-        console.log(opt)
+      a(){
+        console.log(1)
       }
     }
   };

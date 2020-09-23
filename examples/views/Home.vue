@@ -82,11 +82,11 @@ export default {
             text:"table 表格",
             path:"#/component/table",
           },
-          /*{
+          {
             id:8,
             text:"select 下拉",
             path:"#/component/select",
-          },*/
+          },
           {
             id:9,
             text:"Message 消息提示",
