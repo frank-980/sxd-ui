@@ -1,5 +1,5 @@
 <template>
-    <li class="select-dropdown" @click="ab" :value="value">{{label}}1</li>
+    <li class="select-dropdown" @click="handleInput(value)" :value="value">{{label}}</li>
 </template>
 <script> 
   export default {
@@ -25,8 +25,8 @@
       
     },
     methods:{
-     ab(){
-       this.$emit("S",'test')
+     handleInput(val){
+      //this.$emit('click', 123)
      } 
     }
   };
