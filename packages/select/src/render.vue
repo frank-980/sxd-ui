@@ -16,6 +16,7 @@
               {
                 'class': {
                   selectItem: true,
+                  disabled:props.data.disabled?true:false
                 },
                 attrs:{
                   class:'selectItem',
@@ -40,7 +41,14 @@
     }
 </script>
 <style>
-  .selectItem:hover{
+.selectItem:hover{
     background-color: #f5f7fa;
+}
+.disabled{
+    color: #c0c4cc !important;
+    cursor: not-allowed !important;
+}
+.disabled:hover{
+    background-color: #fff !important;
 }
 </style>

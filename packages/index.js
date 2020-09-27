@@ -11,6 +11,9 @@ import SxdSwitch from './sxd-switch'
 import SxdSelect from './select'
 import SxdSelectOptions from './select-options'
 import SxdAutoComplete from './autocomplete'
+import SxdCheckbox from './sxd-checkbox'
+import SxdcheckboxGroup from './sxd-checkbox-group'
+import SxdPagination from './sxd-pagination'
 import Message from './alert'
 import '../public/iconfont/iconfont.css';
 // 所有组件列表
@@ -27,6 +30,9 @@ const components = [
   SxdSelectOptions,
   SxdSwitch,
   SxdAutoComplete,
+  SxdCheckbox,
+  SxdcheckboxGroup,
+  SxdPagination,
   Message
 ]
 Vue.prototype.$message = Message;

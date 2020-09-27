@@ -1,20 +1,28 @@
 <template>
-<div>
-    <div>
-        <div class="selection">
-            <sxd-inputpro @focus="showSuggestions=true"  v-model="inputVal" clearable/>
+    <div class="selectWrap">
+        <div class="selection" @mouseover="isStick=true" @mouseout="isStick=false">
+          <div class="sxd-input" @click="show">
+            <input ref="select" :class="['sxd-ip']" :disabled="disabled" :placeholder="placeholder" v-model='inputVal' @blur="hide"/> 
+              <span class="suffixIcon" :style="rotate">
+                <i class='input-icon iconfont icon-arrow-down-bold'></i>
+              </span>
+          </div>
         </div>
-        <div v-if="showSuggestions" class="dropdown">
+        <!--选项框-->
+        <div v-if="showSuggestions" class="tri"><i class="iconfont icon-arrow-up-filling"></i></div>
+        <div v-if="showSuggestions" class="dropdown" @mouseover="isStick=true" @mouseout="isStick=false">
             <div style="margin:10px 0;">
-            <ul class="ul">
-                <ren v-for="(item,index) in data" :key="index"
-                @click="click(item.value)" :data="item"></ren>
-            </ul>
+              <ul class="ul">
+                  <ren 
+                    v-for="(item,index) in data" 
+                    :key="index"
+                    @click="click(item.value)" 
+                    :data="item"
+                  ></ren>
+              </ul>
             </div> 
         </div>
     </div>
-    
-</div>
 </template>
 <script>
 import ren from './render.vue';
@@ -32,11 +40,27 @@ const getOptionValue = option =>{
   }
   return ''
 }
+const getOptionDisabled = option =>{
+  if(!option.componentOptions.propsData.disabled){
+    return false
+  }
+  return true
+}
   export default {
     name: 'SxdSelect',
     components: {ren},
     props: {
-      name: String
+      disabled: {
+        type:Boolean,
+        default:false,
+      },
+      placeholder: {
+        type:String,
+        default:"请输入",
+      },
+      value:{
+        default:""
+      }
     },
     data(){
       return{
@@ -45,33 +69,47 @@ const getOptionValue = option =>{
         slotOptions2: this.$slots.default[0],
         data:[],
         inputVal:"",
-        options:[]
+        options:[],
+        isStick:false,
+        rotate:"transform:rotate(0deg)"
       }
-      
     },
     mounted(){
-      //console.log(this.selectOptions())
-      //this.$on('S', this.onOptionClick);
-      console.log(this.$slots.default)
+      this.inputVal=this.value
       for(let i=0;i<this.slotOptions.length;i++){
         this.data.push(this.getOptionData(this.slotOptions[i]))
       }
-      //this.options = this.selectOptions()
-      //this.data=this.getOptionData(this.slotOptions)
     },
     watch: {
       inputVal(n,o){
         this.$emit('input',n)
+      },
+      disabled(n,o){
+        if(n) this.rotate="cursor:not-allowed"
       }
     },
     methods:{
-      hide(){
-        if(this.inputVal){
+      show(){
+        if(this.disabled){
+          return
+        }
+        if(!this.showSuggestions){
+          this.$refs.select.focus()
+          this.showSuggestions=true
+          this.rotate="transform:rotate(-180deg)"
+        }else{
           this.showSuggestions=false
+          this.rotate="transform:rotate(0deg)"
+        }
+        
+      },
+      hide(){
+        if(!this.isStick){
+          this.showSuggestions=false
+          this.rotate="transform:rotate(0deg)"
         }
       },
       click(val){
-        console.log(val)
         this.inputVal=val
         this.$emit('input',val)
         this.showSuggestions=false
@@ -79,18 +117,19 @@ const getOptionValue = option =>{
       getOptionData(opt){
         return {
           value:getOptionValue(opt),
-          label:getOptionLabel(opt)
+          label:getOptionLabel(opt),
+          disabled:getOptionDisabled(opt)
         }
       },
       selectOptions(){
         const selectOptions = [];
         const slotOptions=this.slotOptions
         for(let i=0;i<slotOptions.length;i++){
-          selectOptions.push(this.processOption(slotOptions[i],1,1))
+          selectOptions.push(this.processOption(slotOptions[i]))
         }
         return selectOptions
       },
-      processOption(option,values,focused){
+      processOption(option){
         return {
           ...option,
           componentOptions:{
@@ -99,14 +138,19 @@ const getOptionValue = option =>{
           }
         }
       },
-      a(val){
-        console.log(val)
-      }
     }
   };
 </script>
 <style scoped>
+.selectWrap{
+position: relative;
+display: inline-block;
+}
   .dropdown{
+    position: absolute;
+    z-index:9;
+    top:45px;
+    left:0;
     overflow: scroll;
     height: 100%;
     max-height: 274px;
@@ -119,5 +163,63 @@ const getOptionValue = option =>{
     width:200px;
     height:auto;
   }
+  .tri{
+    position: absolute;
+    top:36px;
+    left:110px;
+    color:#e4e7ed;
+    z-index:9
+  }
 
+.sxd-input{
+   position: relative;
+   width:200px;
+   display: inline-block;
+}
+:focus{outline: none;}
+.sxd-ip:disabled{
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  border-bottom:1px solid #ccc;
+  color: #c0c4cc;
+}
+.sxd-ip{
+      background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    box-sizing: border-box;
+    color: #606266;
+    display: inline-block;
+    font-size: 16px;
+    height: 40px;
+    line-height: 1;
+    outline: none;
+    padding: 0 15px;
+    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+   width:100%;
+   cursor:pointer
+}
+.sxd-ip:focus{
+	border-color:#7763e9
+}
+.suffixIcon{
+  font-size:16px;
+  position: absolute;
+    height: 100%;
+    right: 10px;
+    top: 0;
+    text-align: center;
+    color: #c0c4cc;
+    transition: all .3s;
+    cursor:pointer;
+    transform:rotate(0deg)
+}
+.input-icon{
+  width: 25px;
+    line-height: 40px;
+        height: 100%;
+    text-align: center;
+    transition: all .3s;
+}
 </style>

@@ -7,6 +7,8 @@ import Usage from '../components/Usage'
 import Install from '../components/Install'
 import select from '../components/Select'
 import message from '../components/Message'
+import checkbox from '../components/Checkbox'
+import pagination from '../components/Pagination'
 export default [
     /* usage */
     {
@@ -79,6 +81,22 @@ export default [
         path: '/component/message',
         name: 'message',
         component: message,
+        meta: {
+            title: '组件|SHN-UI'
+        }
+    },
+    {
+        path: '/component/checkbox',
+        name: 'checkbox',
+        component: checkbox,
+        meta: {
+            title: '组件|SHN-UI'
+        }
+    },
+    {
+        path: '/component/pagination',
+        name: 'pagination',
+        component: pagination,
         meta: {
             title: '组件|SHN-UI'
         }

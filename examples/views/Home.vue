@@ -92,6 +92,16 @@ export default {
             text:"Message 消息提示",
             path:"#/component/message",
           },
+          {
+            id:10,
+            text:"checkbox 多选框",
+            path:"#/component/checkbox",
+          },
+          {
+            id:11,
+            text:"pagination 分页",
+            path:"#/component/pagination",
+          },
         ]
       },
     ]
