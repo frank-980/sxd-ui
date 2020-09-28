@@ -1,16 +1,16 @@
 <template>
 <div>
-    <p style="margin:0;font-size:28px;font-weight:400;color:#1f2f3d">Pagination 分页</p>
+    <p style="margin:0;font-size:28px;font-weight:400;color:#1f2f3d">Pagination 分页(开发中)</p>
     <p style="font-size:14px;font-weight:400;color:#5e6d82">当数据量过多时，使用分页分解数据。</p>
 <!--基础用法-->
     <Block-code title="基础用法" :code="code1" height="398px">
       <template slot="source">
-        <sxd-pagination 
+        <!--<sxd-pagination 
         total="41"
         page-size="10"
         :page-sizes="[5,10,15]"
         @sizeChange="handleSize"
-        @currentChange="handleCurrent"></sxd-pagination>
+        @currentChange="handleCurrent"></sxd-pagination>-->
 
         <sxd-pagination 
         total="81"

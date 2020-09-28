@@ -7,7 +7,7 @@
   </sxd-select> 条/页
   <div>
     <!--头-->
-    <span class="pageNum"><i class="iconfont icon-arrow-left-filling"></i></span>
+    <span class="pageNum" @click="currant_page=currant_page-1"><i class="iconfont icon-arrow-left-filling"></i></span>
     <span :class="['pageNum',currant_page==1?'cur':'']" @click="changeCur(1)">1</span>
     <!--省略号-->
     <span class="pageNum" @click="backFive" v-if="sizeArray[0]!=2"><i class="iconfont icon-arrow-double-left"></i></span>
@@ -24,7 +24,7 @@
     <span class="pageNum" @click="forwordFive" v-if="sizeArray[4]!=pageLength-1"><i class="iconfont icon-arrow-double-right"></i></span>
     <!--屁股-->
     <span :class="['pageNum',currant_page==pageLength?'cur':'']" @click="changeCur(pageLength)">{{pageLength}}</span>
-    <span class="pageNum"><i class="iconfont icon-arrow-right-filling"></i></span>
+    <span class="pageNum" @click="currant_page=currant_page+1"><i class="iconfont icon-arrow-right-filling"></i></span>
   </div>
 </div>
 </template>
@@ -81,20 +81,23 @@ export default {
       if(this.currant_page - 5 <= 1){
         this.currant_page=1
       }else{
-        this.currant_page=-5
+        this.currant_page=this.currant_page - 5
       }
       
     },
     forwordFive(){
-      if(this.currant_page - 5 >= this.pageLength){
+      if(this.currant_page + 5 >= this.pageLength){
         this.currant_page=this.pageLength
       }else{
-        this.currant_page=+5
+        this.currant_page=this.currant_page + 5
       }
       
     },
     changeCur(cur){
-      this.currant_page=cur
+      
+        this.currant_page=cur
+      
+      
       this.$emit('currentChange',cur)
     }
   },
@@ -103,8 +106,19 @@ export default {
       this.$emit('sizeChange',n)
     },
     currant_page:function(n,o){
-      if((n==3 && o>3) || (n==this.pageLength-2 && o<this.pageLength)){
-        return
+      let pl= this.pageLength
+      if(n==1){
+        this.sizeArray=[2,3,4,5,6]
+      }
+      if(n==pl){
+        this.sizeArray=[pl-5,pl-4,pl-3,pl-2,pl-1]
+      }
+
+      if((n==3 && o>3)){
+        //return
+        this.sizeArray=[n-1,n,n+1,n+2,n+3]
+      }else if(n==this.pageLength-2 && o<this.pageLength){
+        this.sizeArray=[n-3,n-2,n-1,n,n+1]
       }else{
         if(n>=4 && n<=this.pageLength-3) 
           this.sizeArray=[n-2,n-1,n,n+1,n+2]
@@ -132,6 +146,7 @@ export default {
   cursor:pointer;
   text-align: center;
   background: #fff;
+  user-select: none;
 }
 .pageNum:hover{
   color:#7763e9
