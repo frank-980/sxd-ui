@@ -9,6 +9,7 @@ import select from '../components/Select'
 import message from '../components/Message'
 import checkbox from '../components/Checkbox'
 import pagination from '../components/Pagination'
+import card from '../components/Card'
 export default [
     /* usage */
     {
@@ -97,6 +98,14 @@ export default [
         path: '/component/pagination',
         name: 'pagination',
         component: pagination,
+        meta: {
+            title: '组件|SHN-UI'
+        }
+    },
+    {
+        path: '/component/card',
+        name: 'card',
+        component: card,
         meta: {
             title: '组件|SHN-UI'
         }

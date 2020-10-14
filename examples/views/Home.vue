@@ -102,6 +102,11 @@ export default {
             text:"pagination 分页",
             path:"#/component/pagination",
           },
+          {
+            id:12,
+            text:"card 卡片",
+            path:"#/component/card",
+          },
         ]
       },
     ]
