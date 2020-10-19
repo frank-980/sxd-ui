@@ -1,6 +1,6 @@
 {
   "name": "sxd-ui",
-  "version": "0.1.25",
+  "version": "0.1.26",
   "main": "lib/sxd-ui.umd.min.js",
   "files": [
     "lib/*",
