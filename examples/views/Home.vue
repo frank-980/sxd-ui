@@ -107,6 +107,11 @@ export default {
             text:"card 卡片",
             path:"#/component/card",
           },
+          {
+            id:12,
+            text:"dialog 对话框",
+            path:"#/component/dialog",
+          },
         ]
       },
     ]

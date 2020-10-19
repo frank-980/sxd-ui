@@ -10,6 +10,7 @@ import message from '../components/Message'
 import checkbox from '../components/Checkbox'
 import pagination from '../components/Pagination'
 import card from '../components/Card'
+import dialog from '../components/Dialog'
 export default [
     /* usage */
     {
@@ -106,6 +107,14 @@ export default [
         path: '/component/card',
         name: 'card',
         component: card,
+        meta: {
+            title: '组件|SHN-UI'
+        }
+    },
+    {
+        path: '/component/dialog',
+        name: 'dialog',
+        component: dialog,
         meta: {
             title: '组件|SHN-UI'
         }

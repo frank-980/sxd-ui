@@ -23,7 +23,10 @@ export default {
         return {
 
         }
-    }
+    },
+    mounted(){
+        console.log(this.$attrs)
+    },
 }
 </script>
 <style>

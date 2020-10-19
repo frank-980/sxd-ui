@@ -15,6 +15,7 @@ import SxdCheckbox from './sxd-checkbox'
 import SxdcheckboxGroup from './sxd-checkbox-group'
 import SxdPagination from './sxd-pagination'
 import SxdCard from './card'
+import SxdDialog from './dialog'
 import Message from './alert'
 import '../public/iconfont/iconfont.css';
 // 所有组件列表
@@ -35,6 +36,7 @@ const components = [
   SxdcheckboxGroup,
   SxdPagination,
   SxdCard,
+  SxdDialog,
   Message
 ]
 Vue.prototype.$message = Message;

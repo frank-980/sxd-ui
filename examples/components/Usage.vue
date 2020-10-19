@@ -19,15 +19,15 @@ export default {
        code:{
            javascript:`
     import Vue from 'vue'
-    import SxdUi from 'element-ui'
+    import SxdUi from 'sxd-ui'
     import "sxd-ui/lib/sxd-ui.css"
     import App from './App.vue'
 
     Vue.use(SxdUi)
 
     new Vue({
-    el: '#app',
-    render: h => h(App)
+      el: '#app',
+      render: h => h(App)
     })
             `
        }

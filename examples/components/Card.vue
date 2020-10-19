@@ -5,7 +5,7 @@
 <!--基础用法-->
     <Block-code title="基础用法" :code="code1" height="336px">
       <template slot="source">
-        <sxd-card>
+        <sxd-card pl="abc" klass="abc">
             <div slot="header">
                 <span>header(可选)</span>
             </div>
