@@ -1,6 +1,6 @@
 <template>
     <table style="width:100%;border-collapse:collapse">
-        <tr >
+        <tr>
             <th class="header-col" v-for="(item,index) in columns" :key="index">{{item.title}}</th>
         </tr>
         <tr class="body-row" v-for="(item,index) in data" :key="index">

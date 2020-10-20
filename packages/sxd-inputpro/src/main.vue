@@ -1,53 +1,58 @@
 <template>
-<div :class="[
-'sxd-input',
-$slots.append?'fixInput':'',
-$slots.prepend?'fixInput':'',
-]">
-  <div v-if="$slots.prepend" class="prepend">
-    <slot name="prepend"></slot>
+<div class="wrap">
+  <div class="label" v-if="$slots.labelArea">
+    <slot name="labelArea"></slot>
   </div>
-  <input 
-  v-if="type!='textarea'"
-  :class="[
-    'sxd-ip',
-    prefixIcon?'marginLeft':'',
-    suffixIcon?'marginRight':'',
-    $slots.append?'borderRightNone':'',
-    $slots.prepend?'borderLeftNone':''
-  ]"  
-  :placeholder="label"
-  :value="value"
-  :type="type"
-  :disabled="disabled"
-  @input="handleInput" 
-  @click="handleClick"
-  @focus="handleFocus"
-  @blur="handleBlur"
-  />
-  <div v-if="$slots.append" class="append">
-    <slot name="append"></slot>
+  <div :class="[
+  'sxd-input',
+  $slots.append?'fixInput':'',
+  $slots.prepend?'fixInput':'',
+  ]">
+    <div v-if="$slots.prepend" class="prepend">
+      <slot name="prepend"></slot>
+    </div>
+    <input 
+    v-if="type!='textarea'"
+    :class="[
+      'sxd-ip',
+      prefixIcon?'marginLeft':'',
+      suffixIcon?'marginRight':'',
+      $slots.append?'borderRightNone':'',
+      $slots.prepend?'borderLeftNone':''
+    ]"  
+    :placeholder="placeholder"
+    :value="value"
+    :type="type"
+    :disabled="disabled"
+    @input="handleInput" 
+    @click="handleClick"
+    @focus="handleFocus"
+    @blur="handleBlur"
+    />
+    <div v-if="$slots.append" class="append">
+      <slot name="append"></slot>
+    </div>
+    <!--前置-->
+    <span v-if="prefixIcon" class="prefixIcon">
+      <i style="" :class="[
+      'input-icon',
+      'iconfont',
+      prefixIcon?prefixIcon:''
+      ]"></i>
+    </span>
+    
+    <!--后置-->
+    <span v-if="clearable" class="suffixIcon" @click="clear">
+      <i style="" class="input-icon iconfont icon-error"></i>
+    </span>
+    <span v-else-if="suffixIcon" class="suffixIcon">
+      <i style="" :class="[
+      'input-icon',
+      'iconfont',
+      suffixIcon?suffixIcon:''
+      ]"></i>
+    </span>
   </div>
-  <!--前置-->
-  <span v-if="prefixIcon" class="prefixIcon">
-    <i style="" :class="[
-    'input-icon',
-    'iconfont',
-    prefixIcon?prefixIcon:''
-    ]"></i>
-  </span>
-  
-  <!--后置-->
-  <span v-if="clearable" class="suffixIcon" @click="clear">
-    <i style="" class="input-icon iconfont icon-error"></i>
-  </span>
-  <span v-else-if="suffixIcon" class="suffixIcon">
-    <i style="" :class="[
-    'input-icon',
-    'iconfont',
-    suffixIcon?suffixIcon:''
-    ]"></i>
-  </span>
 </div>
 </template>
 
@@ -56,13 +61,13 @@ $slots.prepend?'fixInput':'',
 export default {
   name: 'SxdInputpro', 
   props:{
-    label:{
-      type:String,
+    placeholder:{
+      type:[String,Number],
       default:"请输入",
       required:false,
     },
     value:{
-      type:String,
+      type:[String,Number],
       default:"",
     },
     disabled:{
@@ -221,5 +226,11 @@ export default {
         height: 100%;
     text-align: center;
     transition: all .3s;
+}
+.label{
+  display:inline-block;
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px;
 }
 </style>

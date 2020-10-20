@@ -5,7 +5,11 @@
 
     <Block-code title="基础用法" :code="code1" height="400px">
       <template slot="source">
-        <sxd-inputpro  v-model="inputVal"/>
+        <sxd-inputpro  v-model="inputVal" placeholder="请输入" label="name">
+          <!--<template slot="labelArea">
+            <div style="width:100px">Http://</div>
+          </template>-->
+        </sxd-inputpro>
         <span v-if="inputVal" style="margin-left:70px">绑定值:{{inputVal}}</span>
       </template>
       <template slot="description">
@@ -88,7 +92,7 @@ export default {
        is_loading:true,
        data:[
           {
-            arguments: 'label',
+            arguments: 'placeholder',
             brief: "输入框占位文本",
             type: 'string',
             options: '—',
@@ -148,7 +152,7 @@ export default {
       ],
        code1:{
            html:`
-    <sxd-input v-model="inputVal" label="请输入"/>
+    <sxd-inputpro v-model="inputVal" placeholder="请输入"/>
            `,
            javascript:`
     export default {

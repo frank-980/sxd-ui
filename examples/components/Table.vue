@@ -188,7 +188,7 @@ export default {
         <template v-slot:name="{row}">
             <strong>{{row.name}}</strong>
         </template>
-        <template v-slot:action="{row}">
+        <template v-slot:operate="{row}">
             <sxd-button type="primary" @click="slot(row)">button slot</sxd-button>
         </template>
     </sxd-tablepro>
