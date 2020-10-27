@@ -108,7 +108,7 @@ export default {
             path:"#/component/card",
           },
           {
-            id:12,
+            id:13,
             text:"dialog 对话框",
             path:"#/component/dialog",
           },
@@ -180,10 +180,10 @@ a:focus {
 .sidebar .active, .thirdTit:hover{
   color:#7763e9 !important
 }
-.sidebar ul{
-  padding:0;
+.sidebar .firstUl{
+  padding:0 0 190px 0;
   list-style-type:none;
-  margin:0
+  margin:0;
 }
 .sidebar .firstTit{
   font-size: 16px;

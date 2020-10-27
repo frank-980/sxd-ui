@@ -15,9 +15,18 @@
         <sxd-pagination 
         total="81"
         page-size="10"
+        :currentpage.sync="currentPage"
         :page-sizes="[5,10,15]"
         @sizeChange="handleSize"
         @currentChange="handleCurrent"></sxd-pagination>
+        {{currentPage}}
+        <!--<sxd-pagination 
+        total="51"
+        page-size="10"
+        :currentpage.sync="currentPage"
+        :page-sizes="[5,10,15]"
+        @sizeChange="handleSize"
+        @currentChange="handleCurrent"></sxd-pagination>-->
       </template>
       <template slot="description">
         <p style="font-size: 14px;color: #5e6d82">
@@ -39,6 +48,7 @@
     },
     data(){
       return{
+        currentPage:5,
         data1:[
             {
                 arguments: 'page-size',
@@ -143,6 +153,9 @@
        },
       }
       
+    },
+    mounted(){
+      //setInterval(()=>{console.log(this.currentPage)},1000)
     },
     methods:{
       handleCurrent(val){

@@ -1,16 +1,16 @@
 <template>
   <div class="content">
-    <p style="margin:0;font-size:28px;font-weight:400;color:#1f2f3d">Card 卡片</p>
-    <p style="font-size:14px;font-weight:400;color:#5e6d82">将信息聚合在卡片容器中展示。</p>
+    <p style="margin:0;font-size:28px;font-weight:400;color:#1f2f3d">Dialog 对话框</p>
+    <p style="font-size:14px;font-weight:400;color:#5e6d82">在保留当前页面状态的情况下，告知用户并承载相关操作。</p>
 <!--基础用法-->
-    <Block-code title="基础用法" :code="code1" height="336px">
+    <Block-code title="基础用法" :code="code1" height="570px">
       <template slot="source">
         <sxd-button  @click="dialogVisible1 = true">打开dialog</sxd-button>
-        <sxd-dialog :visible.sync="dialogVisible" width="30%" title="提示">
+        <sxd-dialog :visible.sync="dialogVisible1" width="30%" title="提示">
           <p>这是一段信息</p>
           <div slot="footer">
-            <sxd-button style="margin-right:20px;" @click="dialogVisible = false">取消</sxd-button>
-            <sxd-button type="primary" @click="dialogVisible = false">确定</sxd-button>
+            <sxd-button style="margin-right:20px;" @click="dialogVisible1 = false">取消</sxd-button>
+            <sxd-button type="primary" @click="dialogVisible1 = false">确定</sxd-button>
           </div>
         </sxd-dialog>
       </template>
@@ -21,17 +21,17 @@
       </template>
     </Block-code>
 <!--自定义内容-->
-    <Block-code title="自定义内容" :code="code2" height="360px">
+    <Block-code title="自定义内容" :code="code2" height="610px">
       <template slot="source">
-        <sxd-button  @click="dialogVisible = true">打开dialog</sxd-button>
-        <sxd-dialog :visible.sync="dialogVisible" title="title">
+        <sxd-button  @click="dialogVisible2 = true">打开dialog</sxd-button>
+        <sxd-dialog :visible.sync="dialogVisible2" title="title">
           <sxd-select>
             <sxd-select-options label="选项1的值为宝山区" value="宝山区"></sxd-select-options>
             <sxd-select-options label="选项2的值为普陀区" value="普陀区"></sxd-select-options>
           </sxd-select>
           <div slot="footer">
-            <sxd-button style="margin-right:20px;" @click="dialogVisible = false">取消</sxd-button>
-            <sxd-button type="primary" @click="dialogVisible = false">确定</sxd-button>
+            <sxd-button style="margin-right:20px;" @click="dialogVisible2 = false">取消</sxd-button>
+            <sxd-button type="primary" @click="dialogVisible2 = false">确定</sxd-button>
           </div>
         </sxd-dialog>
       </template>
@@ -62,7 +62,8 @@
 export default {
   data () {
     return {
-       dialogVisible:false,
+       dialogVisible1:false,
+       dialogVisible2:false,
        data:[
           {
             arguments: 'visible',
@@ -138,30 +139,45 @@ export default {
       ],
        code1:{
            html:`
-    <sxd-dialog :visible.sync="dialogVisible" width="30%" title="提示">
+    <sxd-dialog :visible.sync="dialogVisible1" width="30%" title="提示">
       <p>这是一段信息</p>
       <div slot="footer">
-        <sxd-button style="margin-right:20px;" @click="dialogVisible = false">取消</sxd-button>
-        <sxd-button type="primary" @click="dialogVisible = false">确定</sxd-button>
+        <sxd-button style="margin-right:20px;" @click="dialogVisible1 = false">取消</sxd-button>
+        <sxd-button type="primary" @click="dialogVisible1 = false">确定</sxd-button>
       </div>
     </sxd-dialog>
            `,
-           javascript:``
+           javascript:`
+    export default {
+      data () {
+        return {
+          dialogVisible1:false,
+        }
+      }
+    }
+           `
        },
        code2:{
            html:`
-    <sxd-dialog :visible.sync="dialogVisible" title="title">
+    <sxd-dialog :visible.sync="dialogVisible2" title="title">
       <sxd-select>
         <sxd-select-options label="选项1的值为宝山区" value="宝山区"></sxd-select-options>
         <sxd-select-options label="选项2的值为普陀区" value="普陀区"></sxd-select-options>
       </sxd-select>
       <div slot="footer">
-        <sxd-button style="margin-right:20px;" @click="dialogVisible = false">取消</sxd-button>
-        <sxd-button type="primary" @click="dialogVisible = false">确定</sxd-button>
+        <sxd-button style="margin-right:20px;" @click="dialogVisible2 = false">取消</sxd-button>
+        <sxd-button type="primary" @click="dialogVisible2 = false">确定</sxd-button>
       </div>
     </sxd-dialog>
            `,
-           javascript:``
+           javascript:`
+    export default {
+      data () {
+        return {
+          dialogVisible2:false,
+        }
+      }
+    }`
        }
     }
   },

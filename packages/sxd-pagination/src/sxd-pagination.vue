@@ -7,10 +7,10 @@
   </sxd-select> 条/页
   <div>
     <!--头-->
-    <span class="pageNum" @click="currant_page=currant_page-1"><i class="iconfont icon-arrow-left-filling"></i></span>
+    <span class="pageNum" @click="previous"><i class="iconfont icon-arrow-left-filling"></i></span>
     <span :class="['pageNum',currant_page==1?'cur':'']" @click="changeCur(1)">1</span>
     <!--省略号-->
-    <span class="pageNum" @click="backFive" v-if="sizeArray[0]!=2"><i class="iconfont icon-arrow-double-left"></i></span>
+    <span class="pageNum" @click="backFive" v-if="sizeArray[0]!=2 && pageLength>=7"><i class="iconfont icon-arrow-double-left"></i></span>
 
     <!--中间5个数字-->
     <span 
@@ -21,10 +21,10 @@
     >{{item}}</span>
 
     <!--省略号-->
-    <span class="pageNum" @click="forwordFive" v-if="sizeArray[4]!=pageLength-1"><i class="iconfont icon-arrow-double-right"></i></span>
+    <span class="pageNum" @click="forwordFive" v-if="sizeArray[4]!=pageLength-1 && pageLength>=7"><i class="iconfont icon-arrow-double-right"></i></span>
     <!--屁股-->
     <span :class="['pageNum',currant_page==pageLength?'cur':'']" @click="changeCur(pageLength)">{{pageLength}}</span>
-    <span class="pageNum" @click="currant_page=currant_page+1"><i class="iconfont icon-arrow-right-filling"></i></span>
+    <span class="pageNum" @click="next"><i class="iconfont icon-arrow-right-filling"></i></span>
   </div>
 </div>
 </template>
@@ -45,7 +45,7 @@ export default {
       type:String,
       default:"",
     },
-    currentPage:{
+    currentpage:{
       type:[String, Number],
       default:1
     },
@@ -56,7 +56,7 @@ export default {
   },
   created(){
     this.size=this.pageSize
-    
+    this.currant_page = parseInt(this.currentpage)
     if(this.pageLength>=7){
       this.sizeArray=[2,3,4,5,6]
     }else{
@@ -73,17 +73,25 @@ export default {
       sizeArray:[],
       //当前页码
       currant_page:1,
-      color:"#7763e9,#9d69ef,#ce73f2,#ec75f7"
+      //pageLength:页码个数(计算属性)
     }
   },
   methods: {
+    previous(){
+      if(this.currant_page==1) return
+      
+      this.currant_page=this.currant_page-1
+    },
+    next(){
+      if(this.currant_page==this.pageLength) return
+      this.currant_page=this.currant_page+1
+    },
     backFive(){
       if(this.currant_page - 5 <= 1){
         this.currant_page=1
       }else{
         this.currant_page=this.currant_page - 5
       }
-      
     },
     forwordFive(){
       if(this.currant_page + 5 >= this.pageLength){
@@ -91,45 +99,64 @@ export default {
       }else{
         this.currant_page=this.currant_page + 5
       }
-      
     },
     changeCur(cur){
-      
-        this.currant_page=cur
-      
-      
+      this.currant_page=cur  
       this.$emit('currentChange',cur)
+    },
+    computerArray(cur){
+
     }
   },
   watch:{
     size:function(n,o){
       this.$emit('sizeChange',n)
     },
-    currant_page:function(n,o){
-      let pl= this.pageLength
-      if(n==1){
-        this.sizeArray=[2,3,4,5,6]
-      }
-      if(n==pl){
-        this.sizeArray=[pl-5,pl-4,pl-3,pl-2,pl-1]
-      }
-
-      if((n==3 && o>3)){
-        //return
-        this.sizeArray=[n-1,n,n+1,n+2,n+3]
-      }else if(n==this.pageLength-2 && o<this.pageLength){
-        this.sizeArray=[n-3,n-2,n-1,n,n+1]
-      }else{
-        if(n>=4 && n<=this.pageLength-3) 
-          this.sizeArray=[n-2,n-1,n,n+1,n+2]
-      }
-    }
+    currant_page:{
+      handler(n, o) {
+        let pl= this.pageLength
+      　　this.$emit('update:currentpage',n)
+          if(pl<=7){
+            let arr = []
+            if(n==1){
+              console.log("pl<7 n==1")
+              arr=[2,3,4,5]
+            }else{
+              console.log("pl<7 n!=1")
+              for(let i=2;i<pl;i++){
+                arr.push(i)
+              }
+            }
+            
+            this.sizeArray = arr
+            return
+          }
+          if(n==pl){
+            this.sizeArray=[pl-5,pl-4,pl-3,pl-2,pl-1]
+          }
+          if((n==3 && o>3)){
+            //return
+            this.sizeArray=[n-1,n,n+1,n+2,n+3]
+          }else if(n==this.pageLength-2 && o<this.pageLength){
+            this.sizeArray=[n-3,n-2,n-1,n,n+1]
+          }else{
+            if(n>=4 && n<=this.pageLength-3) 
+              this.sizeArray=[n-2,n-1,n,n+1,n+2]
+          }
+          console.log("iam back")
+        }
+    　　},
+    　
   },
   computed:{
     pageLength:function(){
-      return this.total%this.pageSize==0
-        ? this.total / this.pageSize
-        : parseInt(this.total / this.pageSize) + 1
+      let length = this.total % this.size==0
+        ? this.total / this.size
+        : parseInt(this.total / this.size) + 1
+      if(this.currant_page>length){
+        this.currant_page=length
+      }
+      return length
     },
   }
 }
