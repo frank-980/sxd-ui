@@ -11,6 +11,8 @@ import checkbox from '../components/Checkbox'
 import pagination from '../components/Pagination'
 import card from '../components/Card'
 import dialog from '../components/Dialog'
+import radio from '../components/Radio'
+import progress from '../components/Progress'
 export default [
     /* usage */
     {
@@ -115,6 +117,22 @@ export default [
         path: '/component/dialog',
         name: 'dialog',
         component: dialog,
+        meta: {
+            title: '组件|SHN-UI'
+        }
+    },
+    {
+        path: '/component/radio',
+        name: 'radio',
+        component: radio,
+        meta: {
+            title: '组件|SHN-UI'
+        }
+    },
+    {
+        path: '/component/progress',
+        name: 'progress',
+        component: progress,
         meta: {
             title: '组件|SHN-UI'
         }

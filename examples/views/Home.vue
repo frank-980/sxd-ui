@@ -112,6 +112,16 @@ export default {
             text:"dialog 对话框",
             path:"#/component/dialog",
           },
+          {
+            id:14,
+            text:"radio 单选",
+            path:"#/component/radio",
+          },
+          {
+            id:15,
+            text:"Progress 进度条",
+            path:"#/component/progress",
+          },
         ]
       },
     ]

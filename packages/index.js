@@ -16,6 +16,10 @@ import SxdcheckboxGroup from './sxd-checkbox-group'
 import SxdPagination from './sxd-pagination'
 import SxdCard from './card'
 import SxdDialog from './dialog'
+import SxdRadio from './radio'
+import SxdRadioButton from './radio-button'
+import SxdRadioGroup from './radio-group'
+import SxdProgress from './progress'
 import Message from './alert'
 import '../public/iconfont/iconfont.css';
 // 所有组件列表
@@ -37,6 +41,10 @@ const components = [
   SxdPagination,
   SxdCard,
   SxdDialog,
+  SxdRadio,
+  SxdRadioButton,
+  SxdRadioGroup,
+  SxdProgress,
   Message
 ]
 Vue.prototype.$message = Message;
