@@ -58,7 +58,7 @@ export default {
       return false
     },
     model:{
-      get(){
+      get(){ 
         return this.isGroup?this.radioGroup.value:this.value
       },
       set(val){

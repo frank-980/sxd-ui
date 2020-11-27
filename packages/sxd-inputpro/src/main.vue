@@ -42,24 +42,40 @@
     </span>
     
     <!--后置-->
-    <span v-if="clearable" class="suffixIcon" @click="clear">
-      <i style="" class="input-icon iconfont icon-error"></i>
-    </span>
-    <span v-else-if="suffixIcon" class="suffixIcon">
-      <i style="" :class="[
-      'input-icon',
-      'iconfont',
-      suffixIcon?suffixIcon:''
-      ]"></i>
+    <span v-if="getSuffixVisible">
+      <span v-if="clearable" class="suffixIcon" @click="clear">
+        <i style="" class="input-icon iconfont icon-error"></i>
+      </span>
+      <span v-else-if="suffixIcon" class="suffixIcon">
+        <i :class="[
+        'input-icon',
+        'iconfont',
+        suffixIcon?suffixIcon:''
+        ]"></i>
+      </span>
+      <span v-else-if="needStatusIcon" class="suffixIcon">
+        <i v-if="validateState=='error'" style="color:#f56c6c" class="input-icon iconfont icon-error"></i>
+        <!--green #67c23a purple #7763e9-->
+        <i v-else style="color:#67c23a" class="input-icon iconfont icon-success"></i>
+      </span>
     </span>
   </div>
 </div>
 </template>
 
 <script>
-
+import Emiter from '~/mixins/Emiter.js'
 export default {
-  name: 'SxdInputpro', 
+  name: 'SxdInputpro',
+  inject: {
+    Form: {
+      default: ''
+    },
+    formItem: {
+      default: ''
+    }
+  },
+  mixins:[Emiter], 
   props:{
     placeholder:{
       type:[String,Number],
@@ -92,6 +108,29 @@ export default {
        
     }
   },
+  watch:{
+    value(value){
+      this.dispatch("SxdFormItem","form.change",[value])
+    }
+  },
+  mounted(){
+    console.log(this.formItem.validateState)
+    console.log(this.Form.statusIcon)
+  },
+  computed:{
+    validateState(){
+      return this.formItem.validateState
+    },
+    needStatusIcon() {
+      return this.Form ? this.Form.statusIcon : false;
+    },
+    getSuffixVisible() {
+      return this.$slots.suffix ||
+        this.suffixIcon ||
+        this.clearable ||
+        (this.validateState && this.needStatusIcon);
+    }
+  },
   methods: {
     handleInput(event) {
       console.log(event)
@@ -99,12 +138,14 @@ export default {
     },
     handleClick(){
       this.$emit('click', '')
+      
     },
     handleFocus(){
       this.$emit('focus','')
     },
     handleBlur(){
       this.$emit('blur','')
+      this.dispatch("SxdFormItem","form.blur",[this.value])
     },
     clear(){
       this.$emit('input', '')
@@ -232,5 +273,8 @@ export default {
   font-size: 16px;
   height: 40px;
   line-height: 40px;
+}
+.form-item.is-error .sxd-input .sxd-ip{
+    border-color: #f56c6c !important;
 }
 </style>

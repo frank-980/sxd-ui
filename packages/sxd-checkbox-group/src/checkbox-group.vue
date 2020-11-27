@@ -13,8 +13,10 @@
 
 <script>
 import checkboxItem from './checkbox.vue'
+import Emiter from '~/mixins/Emiter.js'
 export default {
   name: 'SxdCheckboxGroup', 
+  mixins:[Emiter],
   props:{
     value:{
       default:[],
@@ -90,6 +92,11 @@ export default {
     　　},
     　　immediate: true,
         deep:true
+    },
+    value(n,o){
+      
+          this.dispatch("SxdFormItem","form.change",[n])
+        
     }
   }
 }

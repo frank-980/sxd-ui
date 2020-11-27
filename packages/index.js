@@ -7,7 +7,7 @@ import BlockCode from './block-code'
 import SxdTable from './sxd-table'
 import SxdTablecol from './sxd-table-col'
 import SxdTablepro from './sxd-table-pro'
-import SxdSwitch from './sxd-switch'
+//import SxdSwitch from './sxd-switch'
 import SxdSelect from './select'
 import SxdSelectOptions from './select-options'
 import SxdAutoComplete from './autocomplete'
@@ -20,6 +20,11 @@ import SxdRadio from './radio'
 import SxdRadioButton from './radio-button'
 import SxdRadioGroup from './radio-group'
 import SxdProgress from './progress'
+import SxdTabs from './tabs'
+import SxdTabPane from './tab-pane'
+import SxdSwitch from './switch'
+import SxdForm from './form'
+import SxdFormItem from './form-item'
 import Message from './alert'
 import '../public/iconfont/iconfont.css';
 // 所有组件列表
@@ -45,6 +50,11 @@ const components = [
   SxdRadioButton,
   SxdRadioGroup,
   SxdProgress,
+  SxdTabs,
+  SxdTabPane,
+  SxdSwitch,
+  SxdForm,
+  SxdFormItem,
   Message
 ]
 Vue.prototype.$message = Message;

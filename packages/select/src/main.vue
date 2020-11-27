@@ -2,7 +2,13 @@
     <div class="selectWrap">
         <div class="selection" @mouseover="isStick=true" @mouseout="isStick=false">
           <div class="sxd-input" @click="show">
-            <input ref="select" :class="['sxd-ip']" :disabled="disabled" :placeholder="placeholder" v-model='inputVal' @blur="hide"/> 
+            <input ref="select" 
+            :class="['sxd-ip']" 
+            :disabled="disabled" 
+            :placeholder="placeholder"
+             v-model='inputVal' 
+             @blur="hide"
+             @input="handleInput"/> 
               <span class="suffixIcon" :style="rotate">
                 <i class='input-icon iconfont icon-arrow-down-bold'></i>
               </span>
@@ -26,6 +32,7 @@
 </template>
 <script>
 import ren from './render.vue';
+import Emiter from '~/mixins/Emiter.js'
 const getOptionLabel = option =>{
   let label = option.componentOptions.propsData.label;
   if(label){
@@ -48,6 +55,7 @@ const getOptionDisabled = option =>{
 }
   export default {
     name: 'SxdSelect',
+    mixins:[Emiter], 
     components: {ren},
     props: {
       disabled: {
@@ -83,6 +91,10 @@ const getOptionDisabled = option =>{
     watch: {
       inputVal(n,o){
         this.$emit('input',n)
+        this.dispatch("SxdFormItem","form.change",[n])
+      },
+      value(n){
+        //
       },
       disabled(n,o){
         if(n) this.rotate="cursor:not-allowed"
@@ -107,11 +119,16 @@ const getOptionDisabled = option =>{
         if(!this.isStick){
           this.showSuggestions=false
           this.rotate="transform:rotate(0deg)"
+          this.dispatch("SxdFormItem","form.blur",[this.value])
         }
+      },
+      handleInput(){
+        this.$emit("form.blur",[this.value])
       },
       click(val){
         this.inputVal=val
         this.$emit('input',val)
+        this.rotate="transform:rotate(0deg)"
         this.showSuggestions=false
       },
       getOptionData(opt){
@@ -221,5 +238,8 @@ display: inline-block;
         height: 100%;
     text-align: center;
     transition: all .3s;
+}
+.form-item.is-error .sxd-input .sxd-ip{
+    border-color: #f56c6c !important;
 }
 </style>

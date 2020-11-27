@@ -13,6 +13,9 @@ import card from '../components/Card'
 import dialog from '../components/Dialog'
 import radio from '../components/Radio'
 import progress from '../components/Progress'
+import tabs from '../components/Tabs'
+import switchs from "../components/Switch"
+import form from "../components/Form"
 export default [
     /* usage */
     {
@@ -133,6 +136,30 @@ export default [
         path: '/component/progress',
         name: 'progress',
         component: progress,
+        meta: {
+            title: '组件|SHN-UI'
+        }
+    },
+    {
+        path: '/component/tabs',
+        name: 'tabs',
+        component: tabs,
+        meta: {
+            title: '组件|SHN-UI'
+        }
+    },
+    {
+        path: '/component/switch',
+        name: 'switch',
+        component: switchs,
+        meta: {
+            title: '组件|SHN-UI'
+        }
+    },
+    {
+        path: '/component/form',
+        name: 'form',
+        component: form,
         meta: {
             title: '组件|SHN-UI'
         }

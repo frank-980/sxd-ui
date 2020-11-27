@@ -16,6 +16,7 @@
     "lib": "vue-cli-service build --target lib --name sxd-ui --dest lib packages/index.js"
   },
   "dependencies": {
+    "async-validator": "^3.5.1",
     "core-js": "^3.6.5",
     "highlight.js": "^10.2.0",
     "vue": "^2.6.11",

@@ -122,6 +122,21 @@ export default {
             text:"Progress 进度条",
             path:"#/component/progress",
           },
+          {
+            id:16,
+            text:"Tabs 标签页",
+            path:"#/component/tabs",
+          },
+          {
+            id:17,
+            text:"Switch 开关",
+            path:"#/component/switch",
+          },
+          {
+            id:18,
+            text:"Form 表单",
+            path:"#/component/form",
+          },
         ]
       },
     ]

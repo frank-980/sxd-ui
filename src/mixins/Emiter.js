@@ -1,5 +1,5 @@
 export default {
-    methods: {
+    methods: { 
         dispatch(componentName,eventName,value){
             let parent = this.$parent
             let name = parent.$options.componentName
