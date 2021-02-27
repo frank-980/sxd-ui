@@ -73,7 +73,10 @@ const install = function (Vue) {
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
-
+export {
+  install,
+  SxdButton,
+}
 export default {
   install,
   // 所有组件，必须具有 install，才能使用 Vue.use()
