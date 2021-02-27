@@ -1,7 +1,7 @@
 <template>
   <div class="content">
-    <p style="margin:0;font-size:28px;font-weight:400;color:#1f2f3d">Button 按钮</p>
-    <p style="font-size:14px;font-weight:400;color:#5e6d82">常用的操作按钮</p>
+    <p style="margin:0;font-size:28px;font-weight:400;color:#1f2f3d">Message 消息提示</p>
+    <p style="font-size:14px;font-weight:400;color:#5e6d82">常用于主动操作后的反馈提示。</p>
 <!--基础用法-->
     <Block-code title="基础用法" :code="code1" height="1000px">
       <template slot="source">

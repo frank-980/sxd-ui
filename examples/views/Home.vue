@@ -54,7 +54,37 @@ export default {
         ]
       },
       {
-        text:"组件",
+        text:"通用",
+        children:[
+          {
+            id:5,
+            text:"icon 图标",
+            path:"#/component/icon",
+          },
+          {
+            id:6,
+            text:"button 按钮",
+            path:"#/component/button",
+          },
+        ]
+      },
+      {
+        text:"导航",
+        children:[
+          {
+            id:11,
+            text:"pagination 分页",
+            path:"#/component/pagination",
+          },
+          {
+            id:16,
+            text:"Tabs 标签页",
+            path:"#/component/tabs",
+          },
+        ]
+      },
+      {
+        text:"数据录入",
         children:[
           {
             id:3,
@@ -68,29 +98,9 @@ export default {
             path:"#/component/inputpro",
           },
           {
-            id:5,
-            text:"icon 图标",
-            path:"#/component/icon",
-          },
-          {
-            id:6,
-            text:"button 按钮",
-            path:"#/component/button",
-          },
-          {
-            id:7,
-            text:"table 表格",
-            path:"#/component/table",
-          },
-          {
             id:8,
             text:"select 下拉",
             path:"#/component/select",
-          },
-          {
-            id:9,
-            text:"Message 消息提示",
-            path:"#/component/message",
           },
           {
             id:10,
@@ -98,34 +108,9 @@ export default {
             path:"#/component/checkbox",
           },
           {
-            id:11,
-            text:"pagination 分页",
-            path:"#/component/pagination",
-          },
-          {
-            id:12,
-            text:"card 卡片",
-            path:"#/component/card",
-          },
-          {
-            id:13,
-            text:"dialog 对话框",
-            path:"#/component/dialog",
-          },
-          {
             id:14,
             text:"radio 单选",
             path:"#/component/radio",
-          },
-          {
-            id:15,
-            text:"Progress 进度条",
-            path:"#/component/progress",
-          },
-          {
-            id:16,
-            text:"Tabs 标签页",
-            path:"#/component/tabs",
           },
           {
             id:17,
@@ -139,6 +124,45 @@ export default {
           },
         ]
       },
+      {
+        text:"数据展示",
+        children:[
+          {
+            id:7,
+            text:"table 表格",
+            path:"#/component/table",
+          },
+          {
+            id:12,
+            text:"card 卡片",
+            path:"#/component/card",
+          },
+          {
+            id:15,
+            text:"Progress 进度条",
+            path:"#/component/progress",
+          },
+        ]
+      },
+      {
+        text:"反馈",
+        children:[
+          {
+            id:9,
+            text:"Message 消息提示",
+            path:"#/component/message",
+          },
+          
+          
+          
+          {
+            id:13,
+            text:"dialog 对话框",
+            path:"#/component/dialog",
+          },
+        ]
+      },
+
     ]
   }},
 

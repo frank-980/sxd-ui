@@ -19,12 +19,12 @@
         <div v-if="showSuggestions" class="dropdown" @mouseover="isStick=true" @mouseout="isStick=false">
             <div style="margin:10px 0;">
               <ul class="ul">
-                  <ren 
+                  <li
+                    :class="item.value===inputVal" 
                     v-for="(item,index) in data" 
                     :key="index"
                     @click="click(item.value)" 
-                    :data="item"
-                  ></ren>
+                  >{{item.label}}</li>
               </ul>
             </div> 
         </div>
@@ -84,6 +84,7 @@ const getOptionDisabled = option =>{
     },
     mounted(){
       this.inputVal=this.value
+      console.log(this.slotOptions)
       for(let i=0;i<this.slotOptions.length;i++){
         this.data.push(this.getOptionData(this.slotOptions[i]))
       }

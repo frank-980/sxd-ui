@@ -19,7 +19,6 @@ export default new Router({
       children: [
         //组件
         ...component,
-        
       ]
     },
   ]

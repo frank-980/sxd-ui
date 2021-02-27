@@ -2,6 +2,7 @@
     export default {
       functional:true,
         render:(h,{props,listeners,children,slots,parent}) => {
+        console.log(listeners)
           /*console.log(slots().name1)*/
           /*const style = document.createElement('style')
           style.innerHTML=`

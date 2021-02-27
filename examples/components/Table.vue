@@ -1,5 +1,7 @@
 <template>
   <div class="content">
+    <p style="margin:0;font-size:28px;font-weight:400;color:#1f2f3d">Table 表格</p>
+    <p style="font-size:14px;font-weight:400;color:#5e6d82">用于展示多条结构类似的数据，可对数据进行排序、筛选、对比或其他自定义操作。</p>
     <!--  BLOCK 基础表格  -->
     <Block-code title="基础表格" :code="code1" height="1027px">
       <template slot="source">

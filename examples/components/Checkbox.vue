@@ -1,7 +1,7 @@
 <template>
 <div>
-    <p style="margin:0;font-size:28px;font-weight:400;color:#1f2f3d">Select 选择器</p>
-    <p style="font-size:14px;font-weight:400;color:#5e6d82">当选项过多时，使用下拉菜单展示并选择内容。</p>
+    <p style="margin:0;font-size:28px;font-weight:400;color:#1f2f3d">Checkbox 多选框</p>
+    <p style="font-size:14px;font-weight:400;color:#5e6d82">一组备选项中进行多选</p>
 <!--基础用法-->
     <Block-code title="基础用法" :code="code1" height="398px">
       <template slot="source">

@@ -1,7 +1,7 @@
 <template>
   <div class="content">
-    <p style="margin:0;font-size:28px;font-weight:400;color:#1f2f3d">Button 按钮</p>
-    <p style="font-size:14px;font-weight:400;color:#5e6d82">常用的操作按钮</p>
+    <p style="margin:0;font-size:28px;font-weight:400;color:#1f2f3d">Radio 单选框</p>
+    <p style="font-size:14px;font-weight:400;color:#5e6d82">在一组备选项中进行单选</p>
 <!--基础用法-->
     <Block-code title="基础用法" :code="code1" height="200px">
       <template slot="source">
@@ -18,7 +18,7 @@
 
 <!--单选框组-->
     <Block-code title="单选框组" :code="code2" height="295px">
-      <template slot="source">
+      <template slot="source">`
         <sxd-radio-group v-model="radio2">
           <sxd-radio label="普陀区">普陀区</sxd-radio>
           <sxd-radio disabled label="宝山区">宝山区</sxd-radio>
@@ -71,7 +71,7 @@
         </p>
       </template>
     </Block-code>
-
+ 
     <p style="margin: 55px 0 20px;font-weight: 400;color: #1f2f3d;font-size: 22px;">Radio Attributes</p>
     <sxd-tablepro :columns="columns1" :data="data1">
     </sxd-tablepro>

@@ -3,6 +3,7 @@ export default {
         dispatch(componentName,eventName,value){
             let parent = this.$parent
             let name = parent.$options.componentName
+            
             while(name!==componentName && parent){
                 parent = parent.$parent
                 if(parent){
